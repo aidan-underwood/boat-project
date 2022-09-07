@@ -13,21 +13,17 @@ public final class Constants {
      * Motor CAN id's.
      */
     public static final class Motors {
+        public static final int leftFront = 2;
+        public static final int leftBack = 3;
+        public static final int rightFront = 1;
+        public static final int rightBack = 4;
     }
 
     /**
      * Pneumatics CAN id constants.
      */
     public static final class Pneumatics {
-    }
-
-    /**
-     * Vision constants for limelight calculations.
-     */
-    public static final class VisionConstants {
-        public static final double deadPocket = 0.05;
-        public static final double limelightHeight = 0;
-        public static final double targetHeight = 0;
-        public static final double limelightAngle = 0;
+        public static final int forwardChan = 4;
+        public static final int reverseChan = 3;
     }
 }

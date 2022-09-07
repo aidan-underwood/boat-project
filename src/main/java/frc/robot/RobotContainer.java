@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.commands.Drive;
+import frc.robot.subsystems.Drivetrain;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -17,6 +19,8 @@ public class RobotContainer {
     /* Controllers */
     private final XboxController driver = new XboxController(Constants.driverID);
     private final XboxController operator = new XboxController(Constants.operatorID);
+
+    private final Drivetrain drivetrain = new Drivetrain();
 
     // Initialize AutoChooser Sendable
     private final SendableChooser<Command> autoChooser = new SendableChooser<>();
@@ -32,6 +36,7 @@ public class RobotContainer {
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
+        drivetrain.setDefaultCommand(new Drive(drivetrain, driver));
         SmartDashboard.putData("Choose Auto: ", autoChooser);
         autoChooser.setDefaultOption("Do Nothing", new WaitCommand(1));
         // Configure the button bindings
